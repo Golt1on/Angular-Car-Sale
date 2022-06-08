@@ -1,0 +1,15 @@
+/*Bu css bütün projeyi etkiler*/
+
+@import"~bootstrap/dist/css/bootstrap.min.css";
+
+*:focus {
+    box-shadow: none !important;
+}
+
+body {
+    background-image: url('assets/backgroundimage/Home-Bg2.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 85%;
+    height: 610px;
+}

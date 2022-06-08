@@ -1,0 +1,57 @@
+.btn-outline-light {
+    border: none !important;
+    border-radius: 0 !important;
+}
+
+.btn-outline-light:hover {
+    border-radius: 0 !important;
+    transition: 1000ms;
+}
+
+.nav-link {
+    color: azure !important;
+    font-weight: lighter;
+}
+
+.nav-link:hover {
+    color: #212529 !important;
+}
+
+.nav-link:focus {
+    font-weight: bolder;
+}
+
+.header {
+    display: flex;
+    justify-content: space-around;
+    padding-top: auto;
+    padding-bottom: auto;
+}
+
+.logo {
+    padding-top: 0.75rem;
+    padding-left: 1.25rem;
+    ;
+}
+
+.logo h5 {
+    color: azure;
+}
+
+.logo h5:hover {
+    color: white;
+    cursor: default;
+}
+
+.fixed-bottom {
+    justify-content: center;
+
+}
+
+.fixed-bottom p {
+    color: azure !important;
+    text-align: center;
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+    font-size: 0.75rem;
+}

@@ -1,0 +1,57 @@
+<div class="container">
+    <div class="row">
+        <div class="col-6 mx-auto m-5 car-table">
+            <h4 class="bg-success text-white p-3 text-center mt-4" style="border-radius:10px;">List of Cars</h4>
+            <div class="input-group mb-4 mt-4">
+                <input #txtItem #filterText type="text" class="form-control" placeholder="Enter A Car Name"
+                    (keyup.enter)="filterItem(txtItem.value)">
+                <button class="btn btn-outline-primary" style="color: azure;"
+                    (click)="filterItem(filterText.value)">Search</button>
+                <button class="btn btn-outline-success" style="color: azure;" (click)="addItem(txtItem.value)">Add</button>
+            </div>
+            <div class="form-check mb-3">
+                <input type="checkbox" [(ngModel)]="displayAll" class="form-check-input" name="" id="displayAll">
+                <label for="displayAll" class="form-check label text-white" style="font-weight: bold;"
+                    *ngIf="displayAll">Showing All</label>
+                <label for="displayAll" class="form-check label text-white" style="font-weight: bold;"
+                    *ngIf="!displayAll">Showing Available</label>
+            </div>
+            <div class="tableContainer">
+                <table class="table table-striped table-dark text-center" *ngIf="model.List.length>0">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Car Name</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let task of model.List; index as i">
+                            <!--getItems methoduyla çektiğim zaman, methodu birden fazla çağırdığı için böyle bir çözüm ürettim -->
+                            <ng-container *ngIf="displayAll == true || task.status == true">
+                                <!--ng-container sanal bir bölüm oluşturur, ui'da görünmez ama girdiğimiz özellikleri alır-->
+                                <td>{{i+1}}</td>
+                                <td>{{task.carName}}</td>
+                                <td>
+                                    <span *ngIf="task.status">AVAILABLE</span>
+                                    <span *ngIf="!task.status">SOLD</span>
+                                </td>
+                                <td>
+                                    <button *ngIf="task.status" class="btn btn-outline-warning"
+                                        style="color: azure; margin-right: 15px;"
+                                        (click)="changeStatus(i)">Sell</button>
+                                    <button *ngIf="!task.status" class="btn btn-warning"
+                                        style="color: black; margin-right: 15px;" disabled>Sell</button>
+                                    <button class="btn btn-outline-danger" (click)="deleteItem(i)"
+                                        style="color: azure;">Del</button>
+                                </td>
+                            </ng-container>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="alert alert-warning" *ngIf="model.List.length==0">No Data Found.</div>
+        </div>
+    </div>
+</div>

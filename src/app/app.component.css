@@ -1,0 +1,7 @@
+/*
+    app.component.html içerisindeki kısmın css düzenlemelerini buradan yapabilirim.
+*/
+
+p{
+    color:red;
+}
